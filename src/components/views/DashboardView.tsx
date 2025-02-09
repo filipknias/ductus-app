@@ -17,11 +17,11 @@ export default function DashboardView() {
             <div className="absolute top-1/2 right-0 transform -translate-y-1/2 w-160 h-160 bg-gradient-to-t from-blue-500 to-darkBlue-900 rounded-full filter blur-4xl"></div>
             <div className="absolute top-1/2 left-80 transform -translate-y-1/2 w-160 h-160 bg-gradient-to-t from-violet-500 to-darkBlue-900 rounded-full filter blur-4xl"></div>
             <div className="relative px-36 h-full flex flex-col justify-center">
-                <div className="flex flex-wrap -m-4 relative">
-                    <div className="w-full lg:w-7/12 p-4">
+                <div className="flex flex-wrap -m-12 relative">
+                    <div className="w-full lg:w-7/12 p-12">
                         <div className="flex flex-wrap -mx-4">
                             {modules.map((module) => (
-                                <div className="w-full lg:w-1/3 px-4 mb-12 flex justify-center" key={module.stepIndicator}>
+                                <div className="w-full lg:w-1/3 px-4 mb-24 flex justify-center" key={module.stepIndicator}>
                                     <ModuleCard 
                                         moduleIcon={module.moduleIcon}
                                         moduleName={module.moduleName}
@@ -32,7 +32,7 @@ export default function DashboardView() {
                             ))}
                         </div>
                     </div>
-                    <div className="w-full lg:w-5/12 p-4">
+                    <div className="w-full lg:w-5/12 p-12">
                         <ModuleContent moduleName={activeModule.moduleName}>
                             {activeModuleIndicator === 1 && <SchoolExperienceForm />}
                         </ModuleContent>
