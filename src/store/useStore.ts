@@ -8,7 +8,7 @@ type ProvidedData = {
     hobbies: string[];
     experience: string;
     aspirations: string;
-    preferences: string[];
+    preferences: string;
 };
 
 type ActiveView = "dashboard" | "summary";
@@ -44,7 +44,7 @@ export const useStore = create<Store>()((set) => ({
         hobbies: [],
         experience: "",
         aspirations: "",
-        preferences: [],
+        preferences: "",
     },
 
     setActiveModuleIndicator: (stepIndicator: number) => {
