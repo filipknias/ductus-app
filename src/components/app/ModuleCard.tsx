@@ -6,11 +6,15 @@ type Props = {
     moduleName: string;
     moduleIcon: string;
     status: Status;
+    onClick: () => void;
 };
 
-export default function ModuleCard({ stepIndicator, moduleName, status, moduleIcon }: Props) {
+export default function ModuleCard({ stepIndicator, moduleName, status, moduleIcon, onClick }: Props) {
     return (
-        <button className={clsx("flex flex-col items-center transition duration-250 relative group", status !== "locked" && "cursor-pointer hover:-translate-y-4")}>
+        <button 
+            onClick={status !== "locked" ? onClick : undefined} 
+            className={clsx("flex flex-col items-center transition duration-250 relative group", status !== "locked" && "cursor-pointer hover:-translate-y-4")}
+        >
             {status === "locked" && (
                 <>
                     <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 hidden group-hover:block">

@@ -4,9 +4,10 @@ import { useStore } from "@/store/useStore";
 import ModuleContent from "@/components/app/ModuleContent";
 import SchoolExperienceForm from "@/components/forms/SchoolExperienceForm";
 import PersonalityForm from "@/components/forms/PersonalityForm";
+import HobbiesForm from "@/components/forms/HobbiesForm";
 
 export default function DashboardView() {
-    const { statuses, activeModuleIndicator } = useStore();
+    const { statuses, activeModuleIndicator, setActiveModuleIndicator } = useStore();
 
     const activeModule = modules.find((module) => module.stepIndicator === activeModuleIndicator);
     if (!activeModule) return null;
@@ -23,7 +24,8 @@ export default function DashboardView() {
                         <div className="flex flex-wrap -mx-4">
                             {modules.map((module) => (
                                 <div className="w-full lg:w-1/3 px-4 mb-24 flex justify-center" key={module.stepIndicator}>
-                                    <ModuleCard 
+                                    <ModuleCard
+                                        onClick={() => setActiveModuleIndicator(module.stepIndicator)}
                                         moduleIcon={module.moduleIcon}
                                         moduleName={module.moduleName}
                                         status={statuses[module.stepIndicator]}
@@ -37,6 +39,7 @@ export default function DashboardView() {
                         <ModuleContent moduleName={activeModule.moduleName}>
                             {activeModuleIndicator === 1 && <SchoolExperienceForm />}
                             {activeModuleIndicator === 2 && <PersonalityForm />}
+                            {activeModuleIndicator === 3 && <HobbiesForm />}
                         </ModuleContent>
                     </div>
                 </div>

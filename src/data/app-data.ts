@@ -51,3 +51,16 @@ export const characterTraits = [
     "ciekawy",
     "lider",
 ];
+
+export const hobbies = [
+    "czytanie",
+    "rysowanie",
+    "fotografia",
+    "programowanie",
+    "gotowanie",
+    "podróżowanie",
+    "gra na instrumentach",
+    "sport",
+    "gry komputerowe",
+    "pisanie",
+];

@@ -7,11 +7,13 @@ export default function SchoolExperienceForm() {
         providedData, 
         setActiveModuleIndicator,
         updateModulesStatuses,
+        setProgressModuleIndicator,
     } = useStore();
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         setActiveModuleIndicator(2);
+        setProgressModuleIndicator(3);
         updateModulesStatuses({
             1: "completed",
             2: "in-progress",
@@ -25,8 +27,8 @@ export default function SchoolExperienceForm() {
                 className="block w-full py-2 px-4 mb-8 text-lg placeholder-gray-600 text-gray-200 border border-gray-700 rounded-lg bg-gray-800 outline-none focus:border-violet-600 resize-none" 
                 placeholder="Napisz coś o swoim doświadczeniu szkolnym"
                 id="personality"
-                value={providedData.personality}
-                onChange={(e) => updateProvidedData("personality", e.target.value)}
+                value={providedData.schoolExperience}
+                onChange={(e) => updateProvidedData("schoolExperience", e.target.value)}
                 rows={5}
                 required
             ></textarea>

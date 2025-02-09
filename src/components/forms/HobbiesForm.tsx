@@ -1,9 +1,9 @@
-import PrimaryButton from "@/components/app/PrimaryButton";
-import { characterTraits } from "@/data/app-data";
+import { hobbies } from "@/data/app-data";
 import { useStore } from "@/store/useStore";
 import clsx from "clsx";
+import PrimaryButton from "@/components/app/PrimaryButton";
 
-export default function PersonalityForm() {
+export default function HobbiesForm() {
     const { 
         updateProvidedData, 
         providedData, 
@@ -14,39 +14,39 @@ export default function PersonalityForm() {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        setActiveModuleIndicator(3);
-        setProgressModuleIndicator(4);
+        setActiveModuleIndicator(4);
+        setProgressModuleIndicator(5);
         updateModulesStatuses({
-            2: "completed",
-            3: "in-progress",
+            3: "completed",
+            4: "in-progress",
         });
     };
     
-    const handleCharacterClick = (character: string) => {
-        if (providedData.personality.includes(character)) {
-            updateProvidedData("personality", providedData.personality.filter((p) => p !== character));
+    const handleHobbyClick = (hobby: string) => {
+        if (providedData.personality.includes(hobby)) {
+            updateProvidedData("hobbies", providedData.hobbies.filter((h) => h !== hobby));
         } else {
-            updateProvidedData("personality", [...providedData.personality, character]);
+            updateProvidedData("hobbies", [...providedData.hobbies, hobby]);
         }
     };
 
     return (
         <form onSubmit={handleSubmit}>
             <p className="mb-8 text-lg font-medium text-white">
-                Wybierz cechy charakteru pasujace do twojej osobowości
+                Wybierz swoje zainteresowania
             </p>
             <div className="flex flex-wrap gap-4 mb-8">
-                {characterTraits.map((character) => (
+                {hobbies.map((hobby) => (
                     <button
                         type="button"
-                        key={character} 
+                        key={hobby} 
                         className={clsx(
                             "rounded-xl cursor-pointer px-4 py-1 font-medium text-white border border-transparent hover:border-white",
-                            providedData.personality.includes(character) ? "bg-deep-blue" : "bg-white/10",
+                            providedData.hobbies.includes(hobby) ? "bg-deep-blue" : "bg-white/10",
                         )}
-                        onClick={() => handleCharacterClick(character)}
+                        onClick={() => handleHobbyClick(hobby)}
                     >
-                        {character}
+                        {hobby}
                     </button>
                 ))}
             </div>
