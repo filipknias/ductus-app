@@ -38,3 +38,16 @@ export const modules: Module[] = [
         status: "locked",
     },
 ];
+
+export const characterTraits = [
+    "ambitny",
+    "analityczny",
+    "kreatywny",
+    "zdyscyplinowany",
+    "niezależny",
+    "towarzyski",
+    "żądny przygód",
+    "praktyczny",
+    "ciekawy",
+    "lider",
+];

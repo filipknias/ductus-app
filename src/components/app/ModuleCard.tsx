@@ -38,7 +38,7 @@ export default function ModuleCard({ stepIndicator, moduleName, status, moduleIc
                     status === "completed" && "bg-lime-green", 
                     status === "locked" && "bg-gray-500")}
             >
-                <span className="text-sm text-white">{status}</span>
+                <span className={clsx("text-sm", status === "completed" ? "text-black" : "text-white")}>{status}</span>
             </div>
         </button>
     )

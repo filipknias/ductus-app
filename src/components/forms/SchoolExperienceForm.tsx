@@ -2,10 +2,20 @@ import { useStore } from "@/store/useStore"
 import PrimaryButton from "@/components/app/PrimaryButton";
 
 export default function SchoolExperienceForm() {
-    const { updateProvidedData, providedData } = useStore();
+    const { 
+        updateProvidedData, 
+        providedData, 
+        setActiveModuleIndicator,
+        updateModulesStatuses,
+    } = useStore();
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        setActiveModuleIndicator(2);
+        updateModulesStatuses({
+            1: "completed",
+            2: "in-progress",
+        });
     };
 
     return (

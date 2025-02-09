@@ -3,6 +3,7 @@ import ModuleCard from "@/components/app/ModuleCard";
 import { useStore } from "@/store/useStore";
 import ModuleContent from "@/components/app/ModuleContent";
 import SchoolExperienceForm from "@/components/forms/SchoolExperienceForm";
+import PersonalityForm from "@/components/forms/PersonalityForm";
 
 export default function DashboardView() {
     const { statuses, activeModuleIndicator } = useStore();
@@ -35,6 +36,7 @@ export default function DashboardView() {
                     <div className="w-full lg:w-5/12 p-12">
                         <ModuleContent moduleName={activeModule.moduleName}>
                             {activeModuleIndicator === 1 && <SchoolExperienceForm />}
+                            {activeModuleIndicator === 2 && <PersonalityForm />}
                         </ModuleContent>
                     </div>
                 </div>
