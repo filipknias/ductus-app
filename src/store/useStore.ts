@@ -1,20 +1,79 @@
-import { STEPS } from '@/data/steps';
-import { Step } from '@/types/shared';
+import { modules } from '@/data/app-data';
+import { Status } from '@/types/app';
 import { create } from 'zustand';
 
-interface Store {
-    currentStep: number;
-    maxSteps: number;
-    steps: Step[];
-    updateCurrentStep: (step: number) => void;
+type ProvidedData = {
+    schoolExperience: string;
+    personality: string[];
+    hobbies: string[];
+    experience: string;
+    aspirations: string;
+    preferences: string[];
+};
+
+type ActiveView = "dashboard" | "summary";
+
+type Store = {
+    // values
+    activeModuleIndicator: number;
+    progressModuleIndicator: number;
+    statuses: Record<number, Status>;
+    activeView: ActiveView;
+    providedData: ProvidedData;
+    // setters
+    setActiveModuleIndicator: (stepIndicator: number) => void;
+    setProgressModuleIndicator: (stepIndicator: number) => void;
+    updateModulesStatuses: (updateStatusesObj: Record<number, Status>) => void;
+    updateProvidedData: (dataKey: keyof ProvidedData, updatedData: string|string[]) => void;
+    setActiveView: (view: ActiveView) => void;
 }
 
 export const useStore = create<Store>()((set) => ({
-    currentStep: 1,
-    maxSteps: STEPS.length,
-    steps: STEPS,
+    activeModuleIndicator: 1,
+    progressModuleIndicator: 1,
+    statuses: modules.reduce((obj, module) => {
+        if (module.stepIndicator === 1) {
+            return { ...obj, [module.stepIndicator]: "in-progress" };
+        }
+        return { ...obj, [module.stepIndicator]: "locked" };
+    }, {}),
+    activeView: "dashboard",
+    providedData: {
+        schoolExperience: "",
+        personality: [],
+        hobbies: [],
+        experience: "",
+        aspirations: "",
+        preferences: [],
+    },
 
-    updateCurrentStep: (step: number) => {
-        set((state) => ({ ...state, currentStep: step }));
+    setActiveModuleIndicator: (stepIndicator: number) => {
+        set({ activeModuleIndicator: stepIndicator });
+    },
+
+    setProgressModuleIndicator: (stepIndicator: number) => {
+        set({ progressModuleIndicator: stepIndicator });
+    },
+
+    updateModulesStatuses: (updateStatusesObj: Record<number, Status>) => {
+        set((state) => ({
+            statuses: {
+               ...state.statuses,
+               ...updateStatusesObj,
+            },
+        }));
+    },
+
+    updateProvidedData: (dataKey: keyof ProvidedData, updatedData: string|string[]) => {
+        set((state) => ({
+            providedData: {
+                ...state.providedData,
+                [dataKey]: updatedData,
+            },
+        }));
+    },
+
+    setActiveView: (view: ActiveView) => {
+        set({ activeView: view });
     },
 }));
