@@ -5,6 +5,7 @@ import ModuleContent from "@/components/app/ModuleContent";
 import SchoolExperienceForm from "@/components/forms/SchoolExperienceForm";
 import PersonalityForm from "@/components/forms/PersonalityForm";
 import HobbiesForm from "@/components/forms/HobbiesForm";
+import AspirationsForm from "@/components/forms/AspirationsForm";
 
 export default function DashboardView() {
     const { statuses, activeModuleIndicator, setActiveModuleIndicator } = useStore();
@@ -40,6 +41,7 @@ export default function DashboardView() {
                             {activeModuleIndicator === 1 && <SchoolExperienceForm />}
                             {activeModuleIndicator === 2 && <PersonalityForm />}
                             {activeModuleIndicator === 3 && <HobbiesForm />}
+                            {activeModuleIndicator === 5 && <AspirationsForm />}
                         </ModuleContent>
                     </div>
                 </div>
