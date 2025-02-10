@@ -7,13 +7,11 @@ export default function AspirationsForm() {
         providedData, 
         setActiveModuleIndicator,
         updateModulesStatuses,
-        setProgressModuleIndicator,
     } = useStore();
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         setActiveModuleIndicator(6);
-        setProgressModuleIndicator(5);
         updateModulesStatuses({
             5: "completed",
             6: "in-progress",

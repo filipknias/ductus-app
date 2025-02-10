@@ -16,13 +16,11 @@ type ActiveView = "dashboard" | "summary";
 type Store = {
     // values
     activeModuleIndicator: number;
-    progressModuleIndicator: number;
     statuses: Record<number, Status>;
     activeView: ActiveView;
     providedData: ProvidedData;
     // setters
     setActiveModuleIndicator: (stepIndicator: number) => void;
-    setProgressModuleIndicator: (stepIndicator: number) => void;
     updateModulesStatuses: (updateStatusesObj: Record<number, Status>) => void;
     updateProvidedData: (dataKey: keyof ProvidedData, updatedData: string|string[]) => void;
     setActiveView: (view: ActiveView) => void;
@@ -30,7 +28,6 @@ type Store = {
 
 export const useStore = create<Store>()((set) => ({
     activeModuleIndicator: 1,
-    progressModuleIndicator: 1,
     statuses: modules.reduce((obj, module) => {
         if (module.stepIndicator === 1) {
             return { ...obj, [module.stepIndicator]: "in-progress" };
@@ -49,10 +46,6 @@ export const useStore = create<Store>()((set) => ({
 
     setActiveModuleIndicator: (stepIndicator: number) => {
         set({ activeModuleIndicator: stepIndicator });
-    },
-
-    setProgressModuleIndicator: (stepIndicator: number) => {
-        set({ progressModuleIndicator: stepIndicator });
     },
 
     updateModulesStatuses: (updateStatusesObj: Record<number, Status>) => {

@@ -7,13 +7,11 @@ export default function SchoolExperienceForm() {
         providedData, 
         setActiveModuleIndicator,
         updateModulesStatuses,
-        setProgressModuleIndicator,
     } = useStore();
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         setActiveModuleIndicator(2);
-        setProgressModuleIndicator(3);
         updateModulesStatuses({
             1: "completed",
             2: "in-progress",

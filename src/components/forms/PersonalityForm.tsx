@@ -9,13 +9,11 @@ export default function PersonalityForm() {
         providedData, 
         setActiveModuleIndicator,
         updateModulesStatuses,
-        setProgressModuleIndicator,
     } = useStore();
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         setActiveModuleIndicator(3);
-        setProgressModuleIndicator(4);
         updateModulesStatuses({
             2: "completed",
             3: "in-progress",

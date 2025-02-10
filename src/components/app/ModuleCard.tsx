@@ -1,3 +1,4 @@
+import { statusLabels } from "@/data/app-data";
 import { Status } from "@/types/app";
 import clsx from "clsx";
 
@@ -42,7 +43,7 @@ export default function ModuleCard({ stepIndicator, moduleName, status, moduleIc
                     status === "completed" && "bg-lime-green", 
                     status === "locked" && "bg-gray-500")}
             >
-                <span className={clsx("text-sm", status === "completed" ? "text-black" : "text-white")}>{status}</span>
+                <span className={clsx("text-sm", status === "completed" ? "text-black" : "text-white")}>{statusLabels[status]}</span>
             </div>
         </button>
     )

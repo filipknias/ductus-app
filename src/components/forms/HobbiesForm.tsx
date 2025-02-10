@@ -9,13 +9,11 @@ export default function HobbiesForm() {
         providedData, 
         setActiveModuleIndicator,
         updateModulesStatuses,
-        setProgressModuleIndicator,
     } = useStore();
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         setActiveModuleIndicator(4);
-        setProgressModuleIndicator(5);
         updateModulesStatuses({
             3: "completed",
             4: "in-progress",

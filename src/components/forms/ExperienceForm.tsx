@@ -7,13 +7,11 @@ export default function ExperienceForm() {
         providedData, 
         setActiveModuleIndicator,
         updateModulesStatuses,
-        setProgressModuleIndicator,
     } = useStore();
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         setActiveModuleIndicator(5);
-        setProgressModuleIndicator(5);
         updateModulesStatuses({
             4: "completed",
             5: "in-progress",

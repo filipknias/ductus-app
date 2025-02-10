@@ -5,37 +5,31 @@ export const modules: Module[] = [
         stepIndicator: 1,
         moduleName: "Doświadczenie szkolne",
         moduleIcon: "/step1.png",
-        status: "in-progress",
     },
     {
         stepIndicator: 2,
         moduleName: "Osobowość",
         moduleIcon: "/step2.png",
-        status: "locked",
     },
     {
         stepIndicator: 3,
         moduleName: "Zainteresowania",
         moduleIcon: "/step3.png",
-        status: "locked",
     },
     {
         stepIndicator: 4,
         moduleName: "Doświadczenie",
         moduleIcon: "/step4.png",
-        status: "locked",
     },
     {
         stepIndicator: 5,
         moduleName: "Aspiracje",
         moduleIcon: "/step5.png",
-        status: "locked",
     },
     {
         stepIndicator: 6,
         moduleName: "Preferencje",
         moduleIcon: "/step6.png",
-        status: "locked",
     },
 ];
 
@@ -64,3 +58,9 @@ export const hobbies = [
     "gry komputerowe",
     "pisanie",
 ];
+
+export const statusLabels = {
+    "in-progress": "W trakcie",
+    "locked": "Zablokowany",
+    "completed": "Ukończono",
+};

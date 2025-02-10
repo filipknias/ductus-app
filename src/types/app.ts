@@ -4,5 +4,4 @@ export type Module = {
     stepIndicator: number;
     moduleName: string;
     moduleIcon: string;
-    status: Status;
 }

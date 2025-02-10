@@ -6,12 +6,10 @@ export default function PreferencesForm() {
         updateProvidedData, 
         providedData, 
         updateModulesStatuses,
-        setProgressModuleIndicator,
     } = useStore();
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        setProgressModuleIndicator(6);
         updateModulesStatuses({
             6: "completed",
         });
