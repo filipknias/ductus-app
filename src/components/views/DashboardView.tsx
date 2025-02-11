@@ -9,6 +9,7 @@ import AspirationsForm from "@/components/forms/AspirationsForm";
 import ExperienceForm from "@/components/forms/ExperienceForm";
 import PreferencesForm from "@/components/forms/PreferencesForm";
 import PrimaryButton from "@/components/app/PrimaryButton";
+import ProgressIndicator from "@/components/app/ProgressIndicator";
 
 export default function DashboardView() {
     const { 
@@ -25,10 +26,10 @@ export default function DashboardView() {
 
     return (
         <div className="flex flex-wrap -m-12 relative">
-            <div className="w-full lg:w-7/12 p-12">
-                <div className="flex flex-wrap -mx-4">
+            <div className="w-full xl:w-7/12 p-12 order-2 xl:order-1">
+                <div className="flex flex-wrap -mx-4 mb-8">
                     {modules.map((module) => (
-                        <div className="w-full lg:w-1/3 px-4 mb-24 flex justify-center" key={module.stepIndicator}>
+                        <div className="w-full xl:w-1/3 px-4 mb-24 flex justify-center" key={module.stepIndicator}>
                             <ModuleCard
                                 onClick={() => setActiveModuleIndicator(module.stepIndicator)}
                                 moduleIcon={module.moduleIcon}
@@ -39,14 +40,15 @@ export default function DashboardView() {
                         </div>
                     ))}
                 </div>
+                <ProgressIndicator />
             </div>
-            <div className="w-full lg:w-5/12 p-12">
+            <div className="w-full xl:w-5/12 p-12 order-1 xl:order-2">
                 <ModuleContent moduleName={showSummaryView ? "Podsumowanie" : activeModule.moduleName}>
                     {showSummaryView ? (
-                        <div className="">
+                        <div>
                             <img className="mb-8 mx-auto h-32" src="/summary-image.png" alt="check-icon" />
                             <p className="font-medium text-lg text-white text-center max-w-lg mx-auto mb-8">
-                                Dokonałeś świetnego wyboru! Teraz czas na kolejny krok – sprawdź szczegóły rekrutacji i rozpocznij swoją drogę na wymarzoną uczelnię.
+                                Gratulacje! Twója podróż dobiegła końca! Sprawdź swoje rekomendacje w podsumowaniu !
                             </p>
                             <PrimaryButton 
                                 className="max-w-sm mx-auto block"

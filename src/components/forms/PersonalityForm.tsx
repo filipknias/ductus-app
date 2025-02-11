@@ -13,6 +13,9 @@ export default function PersonalityForm() {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+
+        if (providedData.personality.length === 0) return;
+
         setActiveModuleIndicator(3);
         updateModulesStatuses({
             2: "completed",

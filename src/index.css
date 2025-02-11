@@ -15,6 +15,14 @@
     --color-violet-500: #a766e9;
 
     --blur-4xl: 80px;
+
+    --animate-spin: spin 10s linear infinite;
+
+    @keyframes spin {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
 }
 
 body {

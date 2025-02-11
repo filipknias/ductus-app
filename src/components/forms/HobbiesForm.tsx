@@ -13,6 +13,9 @@ export default function HobbiesForm() {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+
+        if (providedData.hobbies.length === 0) return;
+
         setActiveModuleIndicator(4);
         updateModulesStatuses({
             3: "completed",
